@@ -1,0 +1,8 @@
+version = 0.1
+
+[default.deploy.parameters]
+stack_name = "llrt-stack"
+s3_prefix = "llrt"
+region = "us-east-2"
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = []

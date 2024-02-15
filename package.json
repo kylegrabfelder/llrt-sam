@@ -1,0 +1,15 @@
+{
+  "name": "llrt",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "sam build",
+    "bundle": "node tools/bundle.js",
+    "deploy": "sam deploy --config-env default --config-file samconfig.toml --resolve-s3 --no-fail-on-empty-changeset"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

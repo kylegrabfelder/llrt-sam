@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Test LLRT Stack
+
+Resources:
+  LLRTFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./
+      Handler: src/index.handler
+      Runtime: provided.al2023
+      Policies:
+        - AWSLambdaBasicExecutionRole
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Format: esm
+        Minify: true
+        External:
+          - '@aws-sdk'
+          - uuid
+        OutExtension:
+          - .js=.mjs
+        Target: es2020
+        Sourcemap: false
+        EntryPoints:
+          - src/index.js
+        Banner:
+          - js=import { createRequire } from 'module'; const require = createRequire(import.meta.url);
